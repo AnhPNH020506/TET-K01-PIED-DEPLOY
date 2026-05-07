@@ -1,0 +1,6 @@
+@TET.API_HostAddress = http://localhost:5110
+
+GET {{TET.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
