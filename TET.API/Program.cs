@@ -62,7 +62,7 @@ builder.Services.AddQuartzHostedService(options =>
     options.WaitForJobsToComplete = true;
 });
 //Viết cho [PIEDTEAM - STAGE 2] - BACKEND CLASS 🔥
-//test
+//test, try again nha tời
 var app = builder.Build();
 
 app.UseMiddleware<GlobalExceptionHandlerMiddleware>();//dòng này mới lưu ý nha. Lưu ý vì sao dòng này nằm đây
