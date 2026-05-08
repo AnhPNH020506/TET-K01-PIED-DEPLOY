@@ -20,6 +20,12 @@ public class OrderController: ControllerBase
         var result = await _orderService.CreateOrder(request);
         return Ok(ApiResponseFactory.SuccessResponse(result, "Order created", HttpContext.TraceIdentifier ));
     }
+    [HttpPost("nammoadidaphat")]
+    public async Task<IActionResult> CreateOrderNamMoADiDaPhat(Request.CreateOrderRequest request) //bỏ vào đây ta được là sau dấu chấm hỏi
+    {
+        var result = await _orderService.CreateOrder(request);
+        return Ok(ApiResponseFactory.SuccessResponse(result, "Order created", HttpContext.TraceIdentifier ));
+    }
     [HttpPost("sepay/webhook")]
     public async Task<IActionResult> SepayWebHook(Request.SepayWebhookRequest request) //bỏ vào đây ta được là sau dấu chấm hỏi
     {
