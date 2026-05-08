@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Quartz;
+using DotNetEnv;
 using TET.API.Extensions;
 using TET.Api.Middlewares;
 //using TET.API.Middlewares;
@@ -15,6 +16,11 @@ using MailService = Tet.Service.MailService;
 using CartService = Tet.Service.Cart;
 //using ProductService = TET.Service.Product
 using OrderService = Tet.Service.Order;
+Env.Load();
+
+var aspnetCoreEnv = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", aspnetCoreEnv);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -67,11 +73,11 @@ var app = builder.Build();
 
 app.UseMiddleware<GlobalExceptionHandlerMiddleware>();//dòng này mới lưu ý nha. Lưu ý vì sao dòng này nằm đây
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// if (app.Environment.IsDevelopment())
+// {
+//     app.UseSwagger();
+//     app.UseSwaggerUI();
+// }
 app.UseAuthentication();
 app.UseAuthorization();
 
